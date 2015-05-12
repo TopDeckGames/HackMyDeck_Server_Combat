@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 
-namespace GestionServer.Helper
+namespace CombatServer.Helper
 {
     public static class Checksum
     {

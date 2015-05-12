@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace GestionServer.Helper
+namespace CombatServer.Helper
 {
     public static class ByteArray
     {

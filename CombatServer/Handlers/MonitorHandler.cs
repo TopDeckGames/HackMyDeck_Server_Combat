@@ -7,11 +7,11 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.IO;
-using GestionServer.Helper;
-using GestionServer.Model;
+using CombatServer.Helper;
+using CombatServer.Model;
 using System.Diagnostics;
 
-namespace GestionServer.Handlers
+namespace CombatServer.Handlers
 {
     class MonitorHandler
     {

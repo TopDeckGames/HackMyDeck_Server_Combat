@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GestionServer.Model
+namespace CombatServer.Model
 {
     public class User
     {

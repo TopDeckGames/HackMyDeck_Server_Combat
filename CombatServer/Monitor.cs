@@ -3,9 +3,9 @@ using System.Configuration;
 using System.Net.Sockets;
 using System.Net;
 using System.Threading;
-using GestionServer.Handlers;
+using CombatServer.Handlers;
 
-namespace GestionServer
+namespace CombatServer
 {
     class Monitor
     {

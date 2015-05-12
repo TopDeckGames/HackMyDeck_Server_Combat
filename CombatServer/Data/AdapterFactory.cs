@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GestionServer.Data
+namespace CombatServer.Data
 {
     public static class AdapterFactory
     {

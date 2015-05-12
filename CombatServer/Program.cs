@@ -1,9 +1,9 @@
 ﻿using System;
-using GestionServer.Data;
-using GestionServer.Manager;
-using GestionServer.Model;
+using CombatServer.Data;
+using CombatServer.Manager;
+using CombatServer.Model;
 
-namespace GestionServer
+namespace CombatServer
 {
     class MainClass
     {

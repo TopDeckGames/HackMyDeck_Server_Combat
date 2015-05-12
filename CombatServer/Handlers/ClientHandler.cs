@@ -8,11 +8,11 @@ using System.Threading;
 using System.Net;
 using System.Collections.Generic;
 
-using GestionServer.Controller;
-using GestionServer.Helper;
-using GestionServer.Model;
+using CombatServer.Controller;
+using CombatServer.Helper;
+using CombatServer.Model;
 
-namespace GestionServer.Handlers
+namespace CombatServer.Handlers
 {
     public class ClientHandler
     {

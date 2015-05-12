@@ -1,7 +1,7 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
 
-namespace GestionServer.Data
+namespace CombatServer.Data
 {
     public abstract class BaseAdapter
     {

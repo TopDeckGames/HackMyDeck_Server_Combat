@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace GestionServer.Model
+namespace CombatServer.Model
 {
     public class Request
     {

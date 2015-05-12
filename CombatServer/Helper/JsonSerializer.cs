@@ -1,7 +1,7 @@
 ﻿using System;
 using Newtonsoft.Json;
 
-namespace GestionServer.Helper
+namespace CombatServer.Helper
 {
     public static class JsonSerializer
     {

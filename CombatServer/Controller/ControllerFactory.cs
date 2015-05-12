@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GestionServer.Controller
+namespace CombatServer.Controller
 {
     public static class ControllerFactory
     {

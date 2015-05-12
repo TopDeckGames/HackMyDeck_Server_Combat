@@ -3,7 +3,7 @@ using System.Configuration;
 using System.IO;
 using System.Text;
 
-namespace GestionServer
+namespace CombatServer
 {
     public static class Logger
     {

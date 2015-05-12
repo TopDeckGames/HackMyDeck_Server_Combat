@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GestionServer.Manager
+namespace CombatServer.Manager
 {
     public static class ManagerFactory
     {

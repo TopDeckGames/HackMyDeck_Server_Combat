@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace GestionServer
+namespace CombatServer
 {
     public interface IController
     {

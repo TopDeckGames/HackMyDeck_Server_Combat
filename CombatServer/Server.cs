@@ -5,10 +5,10 @@ using System.Net;
 using System.Text;
 using System.Collections.Generic;
 using System.Configuration;
-using GestionServer.Handlers;
-using GestionServer.Model;
+using CombatServer.Handlers;
+using CombatServer.Model;
 
-namespace GestionServer
+namespace CombatServer
 {
     public class Server
     {

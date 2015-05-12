@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using System.Configuration;
 
-namespace GestionServer
+namespace CombatServer
 {
     public class Response
     {
