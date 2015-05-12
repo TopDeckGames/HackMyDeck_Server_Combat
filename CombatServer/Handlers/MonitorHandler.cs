@@ -151,10 +151,10 @@ namespace CombatServer.Handlers
                 switch(req.Type)
                 {
                     case Request.TypeRequest.Register:
-                        User user = JsonSerializer.fromJson<User>(req.Data);
+                        Combat combat = JsonSerializer.fromJson<Combat>(req.Data);
                         try
                         {
-                            Server.AvailableUsers.Add(user, DateTime.Now);
+                            Server.AvailableCombats.Add(combat, DateTime.Now);
                             rep.Type = Request.TypeRequest.Response;
                             response = JsonSerializer.toJson(rep);
                         }

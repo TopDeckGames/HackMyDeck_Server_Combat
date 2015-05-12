@@ -17,7 +17,7 @@ namespace CombatServer
         private volatile int port;
         private volatile List<ClientHandler> handlers = new List<ClientHandler>();
         private volatile bool active;
-        public static Dictionary<User, DateTime> AvailableUsers { get; set; }
+        public static Dictionary<Combat, DateTime> AvailableCombats { get; set; }
 
         /// <summary>
         /// Initialise et démarre le serveur TCP
@@ -30,9 +30,9 @@ namespace CombatServer
 
             port = int.Parse(ConfigurationManager.AppSettings["port"]);
 
-            if(Server.AvailableUsers == null)
+            if(Server.AvailableCombats == null)
             {
-                Server.AvailableUsers = new Dictionary<User, DateTime>();
+                Server.AvailableCombats = new Dictionary<Combat, DateTime>();
             }
 
             this.tcpListener = new TcpListener(IPAddress.Any, port);
@@ -90,10 +90,10 @@ namespace CombatServer
         {
             while (this.active)
             {
-                lock(Server.AvailableUsers)
+                lock(Server.AvailableCombats)
                 {
-                    Dictionary<User, DateTime> temp = new Dictionary<User, DateTime>();
-                    foreach(KeyValuePair<User, DateTime> k in Server.AvailableUsers)
+                    Dictionary<Combat, DateTime> temp = new Dictionary<Combat, DateTime>();
+                    foreach(KeyValuePair<Combat, DateTime> k in Server.AvailableCombats)
                     {
                         k.Value.AddMinutes(10);
                         if(DateTime.Compare(k.Value, DateTime.Now) > 0)
@@ -101,7 +101,7 @@ namespace CombatServer
                             temp.Add(k.Key, k.Value);
                         }
                     }
-                    Server.AvailableUsers = temp;
+                    Server.AvailableCombats = temp;
                 }
 
                 lock (this.handlers)
@@ -109,7 +109,7 @@ namespace CombatServer
                     List<ClientHandler> temp = new List<ClientHandler>();
                     foreach (ClientHandler client in this.handlers)
                     {
-                        if (client.isActive() && Server.AvailableUsers.ContainsKey(client.User))
+                        if (client.isActive())
                         {
                             temp.Add(client);
                         }
@@ -157,7 +157,7 @@ namespace CombatServer
         /// <returns>Int</returns>
         public int getNbPlayers()
         {
-            return this.handlers.Count;
+            return this.handlers.Count * 2;
         }
     }
 }
