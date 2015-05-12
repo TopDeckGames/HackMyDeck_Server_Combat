@@ -157,7 +157,7 @@ namespace CombatServer
         /// <returns>Int</returns>
         public int getNbPlayers()
         {
-            return this.handlers.Count * 2;
+            return this.handlers.Count;
         }
     }
 }
