@@ -67,16 +67,18 @@ namespace CombatServer.Handlers
                 {
                     int id = reader.ReadInt32();
 
-                    foreach(KeyValuePair<User, DateTime> k in Server.AvailableUsers)
+                    foreach(KeyValuePair<Combat, DateTime> k in Server.AvailableCombats)
                     {
-                        if(k.Key.Id.Equals(id))
+                        if (k.Key.User1.Id.Equals(id) || k.Key.User2.Id.Equals(id))
                         {
                             DateTime time = DateTime.FromOADate(k.Value.ToOADate());
-                            time = time.AddMinutes(10);                           
-                            if(DateTime.Compare(time, DateTime.Now) >= 0)
+                            time = time.AddMinutes(10);
+
+                            if (DateTime.Compare(time, DateTime.Now) >= 0)
                             {
-                                this.User = k.Key;
+                                this.User = k.Key.User1.Id.Equals(id) ? k.Key.User1 : k.Key.User2;
                             }
+
                             break;
                         }
                     }
@@ -86,11 +88,6 @@ namespace CombatServer.Handlers
             if(this.User == null)
             {
                 throw new Exception("Client non autorisé");
-            }
-            else
-            {
-                Server.AvailableUsers.Remove(this.User);
-                Server.AvailableUsers.Add(this.User, DateTime.Now);
             }
 
             //Démarage du thread de traitement des requêtes
@@ -142,10 +139,6 @@ namespace CombatServer.Handlers
                         this.requests = new byte[message.Length];
                         message.CopyTo(this.requests, 0);
                     }
-
-                    //On reset le chrono d'activité du joueur
-                    Server.AvailableUsers.Remove(this.User);
-                    Server.AvailableUsers.Add(this.User, DateTime.Now);
                 }
 
                 clientStream.Close();

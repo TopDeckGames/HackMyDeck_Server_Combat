@@ -16,8 +16,9 @@ namespace CombatServer
         private Thread listenThread, cleanupThread;
         private volatile int port;
         private volatile List<ClientHandler> handlers = new List<ClientHandler>();
-        private volatile bool active;
+        private volatile List<CombatHandler> combats = new List<CombatHandler>();
         public static Dictionary<Combat, DateTime> AvailableCombats { get; set; }
+        private volatile bool active;
 
         /// <summary>
         /// Initialise et démarre le serveur TCP

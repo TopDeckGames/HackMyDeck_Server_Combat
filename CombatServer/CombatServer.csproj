@@ -83,6 +83,7 @@
     <Compile Include="Controller\IController.cs" />
     <Compile Include="Data\AdapterFactory.cs" />
     <Compile Include="Data\BaseAdapter.cs" />
+    <Compile Include="Handlers\CombatHandler.cs" />
     <Compile Include="Helper\ByteArray.cs" />
     <Compile Include="Helper\Checksum.cs" />
     <Compile Include="Helper\JsonSerializer.cs" />
