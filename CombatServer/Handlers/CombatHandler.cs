@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using CombatServer.Model;
 
+using LuaInterface;
+
 namespace CombatServer.Handlers
 {
     public class CombatHandler
@@ -71,6 +73,12 @@ namespace CombatServer.Handlers
                 int currentPlayer = rdm.Next(2);
 
                 //Mélanger les decks
+
+                Lua luaInterpret = new Lua();
+                luaInterpret["test"] = 1;
+                luaInterpret.DoString("test = test * 2");
+                double test = (double)luaInterpret["test"];
+                Console.WriteLine(test);
 
                 //Début tour
                 //Timer turn
