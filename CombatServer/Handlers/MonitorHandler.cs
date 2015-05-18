@@ -10,6 +10,7 @@ using System.IO;
 using CombatServer.Helper;
 using CombatServer.Model;
 using System.Diagnostics;
+using CombatServer.Manager;
 
 namespace CombatServer.Handlers
 {
@@ -70,6 +71,9 @@ namespace CombatServer.Handlers
             this.analyserThread = new Thread(new ThreadStart(analyser));
             this.handleThread.Start();
             this.analyserThread.Start();
+
+            ManagerFactory.getMasterManager().MasterAddress = ((IPEndPoint)this.tcpClient.Client.RemoteEndPoint).Address;
+            ManagerFactory.getMasterManager().MasterPort = ((IPEndPoint)this.tcpClient.Client.RemoteEndPoint).Port;
         }
 
         /// <summary>
