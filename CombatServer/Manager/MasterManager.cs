@@ -19,6 +19,11 @@ namespace CombatServer.Manager
         public IPAddress MasterAddress { get; set; }
         public int MasterPort { get; set; }
 
+        public MasterManager()
+        {
+            this.MasterPort = 3001;
+        }
+
         private void connectToMaster()
         {
             try

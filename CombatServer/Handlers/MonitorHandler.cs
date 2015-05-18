@@ -73,7 +73,6 @@ namespace CombatServer.Handlers
             this.analyserThread.Start();
 
             ManagerFactory.getMasterManager().MasterAddress = ((IPEndPoint)this.tcpClient.Client.RemoteEndPoint).Address;
-            ManagerFactory.getMasterManager().MasterPort = ((IPEndPoint)this.tcpClient.Client.RemoteEndPoint).Port;
         }
 
         /// <summary>
